@@ -1,0 +1,171 @@
+:root {
+  --cell-size: min(50px, 10vw);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #f4f4f8;
+}
+
+#topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 10px 20px 0;
+}
+
+#score {
+  background: #4a6cf7;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#mistakes {
+  background: white;
+  color: #c62828;
+  border: 2px solid #c62828;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#board-wrapper {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  margin: 20px auto;
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(9, var(--cell-size));
+  width: max-content;
+  margin: 0 auto;
+  border: 3px solid #333;
+}
+
+#lose-overlay {
+  display: none;
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: #c62828;
+  text-shadow: 0 0 10px white, 0 0 10px white;
+  pointer-events: none;
+}
+
+#lose-overlay.show {
+  display: flex;
+}
+
+.game-over {
+  filter: grayscale(100%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: 1px solid #bbb;
+  background: white;
+  font-size: calc(var(--cell-size) * 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.thick-right {
+  border-right: 3px solid #333;
+}
+
+.thick-bottom {
+  border-bottom: 3px solid #333;
+}
+
+.given {
+  font-weight: bold;
+  background: #eceff6;
+}
+
+.selected {
+  background: #cfe3ff;
+}
+
+.wrong {
+  background: #ffb3b3;
+}
+
+button {
+  font-size: 16px;
+  padding: 8px 18px;
+  margin: 0 6px;
+  border: none;
+  border-radius: 6px;
+  background: #4a6cf7;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #3452d1;
+}
+
+button:disabled {
+  background: #aaa;
+  cursor: not-allowed;
+}
+
+select {
+  font-size: 16px;
+  padding: 8px;
+  margin: 0 6px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+}
+
+#numpad {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  max-width: 282px;
+  margin: 10px auto;
+}
+
+#numpad button {
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+}
+
+#controls {
+  margin: 15px 0;
+}
+
+#message {
+  font-size: 18px;
+  min-height: 28px;
+}
